@@ -7,7 +7,9 @@ import { gsap } from "gsap";
 const Hero = () => {
   const [currentIndex, setcurrentIndex] = useState(1);
   const [hasClick, sethasClick] = useState(false);
+  //@ts-ignore
   const [isLoading, setisLoading] = useState(true);
+  //@ts-ignore
   const [loadedVideos, setloadedVideos] = useState(0);
   const totalVideos = 3;
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
@@ -33,6 +35,7 @@ const Hero = () => {
           height: "100%",
           duration: 1,
           ease: "power1.inOut",
+          //@ts-ignore
           onStart: () => nextVideoRef.current.play(),
         });
         gsap.from("#current-video", {
