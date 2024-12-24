@@ -1,7 +1,7 @@
 interface Button {
   title: string;
   id: string;
-  rightIcon?: string;
+  rightIcon?: string | any;
   leftIcon?: string | any;
   containerClass: string;
 }

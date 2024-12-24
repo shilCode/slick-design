@@ -11,9 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const [currentIndex, setcurrentIndex] = useState(1);
   const [hasClick, sethasClick] = useState(false);
-  //@ts-ignore
   const [isLoading, setisLoading] = useState(true);
-  //@ts-ignore
   const [loadedVideos, setloadedVideos] = useState(0);
   const totalVideos = 3;
   const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
