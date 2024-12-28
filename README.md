@@ -4,4 +4,4 @@ Link: https://slick-design.vercel.app/
 
 TODO:
 
-- [ ] fix ts ignore checks once the project is stable
+- [ ] fix ts ignore checks once the project is stable and finalized

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
+import { useWindowScroll } from "react-use";
 
 const navItem = ["Nexus", "Vault", "Prolouge", "About", "Contact"];
 
@@ -13,6 +14,30 @@ const NavBar = () => {
     setisAudioPlaying((prev) => !prev);
     setisIndicatorActive((prev) => !prev);
   };
+
+  const [lastScrollY, setlastScrollY] = useState(0);
+  //@ts-ignore
+  const [isNavVisible, setisNavVisible] = useState(true);
+
+  const { y: currentScrollY } = useWindowScroll();
+
+  useEffect(() => {
+    if (currentScrollY === 0) {
+      setisNavVisible(true);
+      //@ts-ignore
+      navContainerRef.current.classList.remove("floating-nav");
+    } else if (currentScrollY > lastScrollY) {
+      setisNavVisible(false);
+      //@ts-ignore
+      navContainerRef.current.classList.add("floating-nav");
+    } else if (currentScrollY < lastScrollY) {
+      setisNavVisible(true);
+      //@ts-ignore
+      navContainerRef.current.classList.add("floating-nav");
+    }
+    setlastScrollY(currentScrollY);
+  }, [currentScrollY,lastScrollY]);
+
 
   useEffect(() => {
     if (isAudioPlaying) {
